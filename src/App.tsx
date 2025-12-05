@@ -44,7 +44,7 @@ function App() {
 
   // Countdown for reunion
   const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-  const reunionDate = new Date('2025-12-05T20:30:00');
+  const reunionDate = new Date('2025-12-06T16:00:00');
 
   const audioRef = useRef<HTMLAudioElement>(null);
 
@@ -511,7 +511,7 @@ function App() {
               LO QUE RESTA PARA VERTE
             </h3>
             <p className="text-center text-purple-600 text-sm md:text-base mb-6 font-medium">
-              5 de diciembre de 2025
+              6 de diciembre de 2025
             </p>
 
             <div className="grid grid-cols-2 gap-4">
