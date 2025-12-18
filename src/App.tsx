@@ -2,6 +2,7 @@ import { useEffect, useState, useRef, useMemo } from 'react';
 import { Heart, Sparkles, Users, Music, Edit2, Plus, X } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { Helmet } from "react-helmet";
 import L from 'leaflet';
 
 // Fix default marker icon issue
@@ -44,7 +45,8 @@ function App() {
 
   // Countdown for reunion
   const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-  const reunionDate = new Date('2025-12-06T16:00:00');
+
+  const reunionDate = new Date('2026-01-02T21:00:00');
 
   const audioRef = useRef<HTMLAudioElement>(null);
 
@@ -58,7 +60,37 @@ function App() {
   // Memories map data
   const memories = [
     {
-      position: [-9.1376933, -78.1905439] as [number, number],
+      position: [-9.401659, -77.571566] as [number, number],
+      title: 'Entre Cordilleras',
+      date: '8 de Diciembre, 2025',
+      description: 'La magia de lo extraordinario juntos',
+      photos: [
+        '/1000142011.jpg',
+        '/1000142044.jpg',
+        '/1000142083.jpg',
+        '/1000142089.jpg',
+        '/1000142107.jpg',
+        '/1000142116.jpg',
+        '/1000142377.jpg',
+      ]
+    },
+    {
+      position: [-9.530008, -77.529042] as [number, number],
+      title: 'Huaraz',
+      date: '7-9 de Diciembre, 2025',
+      description: 'Nuevos recuerdos en un lugar mágico',
+      photos: [
+        '/1000141688.jpg',
+        '/1000142134.jpg',
+        '/1000142152.jpg',
+        '/1000142188.jpg',
+        '/1000142202.jpg',
+        '/1000142277.jpg',
+        '/1000142346.jpg',
+      ]
+    },
+    {
+      position: [-9.138954, -78.182943] as [number, number],
       title: 'Moro',
       date: '17 de Octubre, 2025',
       description: 'El día de un nuevo comienzo, donde todo se hizo oficial',
@@ -73,7 +105,7 @@ function App() {
       ]
     },
     {
-      position: [-9.1450145, -78.2855702] as [number, number],
+      position: [-9.149004, -78.279272] as [number, number],
       title: 'San Jacinto',
       date: '18 de Octubre, 2025',
       description: 'Otra parte de nuestra aventura inolvidable',
@@ -86,7 +118,7 @@ function App() {
       ]
     },
     {
-      position: [-9.074386, -78.592921] as [number, number],
+      position: [-9.078359, -78.590135] as [number, number],
       title: 'Chimbote',
       date: '30 Ago 2025 • 19-20 Oct 2025',
       description: 'Donde todo empezó y donde seguimos construyendo',
@@ -215,7 +247,7 @@ function App() {
   // Memoized map to prevent re-renders
   const memoriesMap = useMemo(() => (
     <MapContainer
-      center={[-9.1, -78.35]}
+      center={[-9.2533, -78.0894]}
       zoom={10}
       style={{ height: '500px', width: '100%' }}
       className="rounded-2xl"
@@ -284,6 +316,28 @@ function App() {
 
   return (
     <>
+      <Helmet>
+        <title>Nuestro Love Counter - Shirley ❤️ Yamir</title>
+
+        {/* FAVICON */}
+        <link rel="icon" type="image/png" href="/COUNTER-LOVE.png" />
+        <link rel="icon" type="image/x-icon" href="/COUNTER-LOVE.ico" />
+
+        {/* OG IMAGE */}
+        <meta property="og:image" content="/COUNTER-LOVE.png" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+
+        {/* FACEBOOK + WHATSAPP */}
+        <meta property="og:title" content="Nuestro Love Counter" />
+        <meta property="og:description" content="Nuestro amor contado desde el primer segundo ❤️" />
+
+        {/* TWITTER */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="/COUNTER-LOVE.png" />
+      </Helmet>
+
       <audio ref={audioRef} src="/novios.mpeg" loop preload="auto" />
 
       <div className="fixed bottom-4 right-4 z-50 md:bottom-6 md:right-6">
@@ -337,7 +391,7 @@ function App() {
               <Heart className="w-10 h-10 md:w-12 md:h-12 text-rose-500 fill-rose-500 animate-pulse" style={{ animationDelay: '0.4s' }} />
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-2 leading-tight">
-              Nuestro Primer Mes
+              Nuestra Historia de Amor
             </h1>
             <p className="text-lg md:text-xl">Contando cada momento juntos</p>
             {isSpecialDay && <p className="text-2xl text-yellow-500 mt-4 animate-bounce">¡Feliz día especial! 🎉</p>}
@@ -453,7 +507,7 @@ function App() {
             </motion.div>
           </div>
 
-          <motion.div
+          {/* <motion.div
             className="bg-white/85 backdrop-blur-sm rounded-3xl shadow-2xl p-6 md:p-8 border-2 border-red-300 relative overflow-hidden cursor-pointer"
             onMouseEnter={() => setShowOneMonthImage(true)}
             onMouseLeave={() => setShowOneMonthImage(false)}
@@ -491,7 +545,7 @@ function App() {
                 transition={{ duration: 0.5 }}
               />
             )}
-          </motion.div>
+          </motion.div> */}
 
           <motion.div
             className="mt-10 bg-white/85 backdrop-blur-sm rounded-3xl shadow-2xl p-6 md:p-8 border-2 border-purple-300 relative overflow-hidden"
@@ -511,7 +565,7 @@ function App() {
               LO QUE RESTA PARA VERTE
             </h3>
             <p className="text-center text-purple-600 text-sm md:text-base mb-6 font-medium">
-              6 de diciembre de 2025
+              2 de enero de 2026
             </p>
 
             <div className="grid grid-cols-2 gap-4">
