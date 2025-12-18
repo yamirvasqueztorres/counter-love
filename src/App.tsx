@@ -48,7 +48,7 @@ function App() {
 
   const reunionDate = new Date('2026-01-02T21:00:00');
 
-  const audioRef = useRef<HTMLAudioElement>(null);
+  /* const audioRef = useRef<HTMLAudioElement>(null); */
 
   const relationshipStart = new Date('2025-10-17T11:15:00');
   const firstDateStart = new Date('2025-08-30T05:52:00');
@@ -147,12 +147,12 @@ function App() {
   }, []);
 
   // Autoplay music with fallback
-  useEffect(() => {
+  /* useEffect(() => {
     if (audioRef.current) {
       audioRef.current.volume = 0.45;
       audioRef.current.play().catch(() => setIsPlaying(false));
     }
-  }, []);
+  }, []); */
 
   // Live countdown
   useEffect(() => {
@@ -205,12 +205,12 @@ function App() {
     setIsSpecialDay(isThaliaBD || isYamirBD || isAnniversary);
   }, []);
 
-  const toggleMusic = () => {
+  /* const toggleMusic = () => {
     if (audioRef.current) {
       isPlaying ? audioRef.current.pause() : audioRef.current.play();
       setIsPlaying(!isPlaying);
     }
-  };
+  }; */
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
@@ -338,9 +338,9 @@ function App() {
         <meta name="twitter:image" content="/COUNTER-LOVE.png" />
       </Helmet>
 
-      <audio ref={audioRef} src="/novios.mpeg" loop preload="auto" />
+      {/* <audio ref={audioRef} src="/novios.mpeg" loop preload="auto" /> */}
 
-      <div className="fixed bottom-4 right-4 z-50 md:bottom-6 md:right-6">
+      {/* <div className="fixed bottom-4 right-4 z-50 md:bottom-6 md:right-6">
         <button
           onClick={toggleMusic}
           className={`
@@ -359,7 +359,7 @@ function App() {
             </>
           )}
         </button>
-      </div>
+      </div> */}
 
       <div className="fixed top-4 right-4 z-50">
         <button
